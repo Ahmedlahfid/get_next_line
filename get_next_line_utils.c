@@ -6,40 +6,13 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:21:08 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/20 17:15:07 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2024/11/21 13:25:47 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read(int fd, char *buffer)
-{
-	char	*buf;
-	char	*to_free;
-	int		count;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
-		return (NULL);
-	count = read(fd, buf, BUFFER_SIZE);
-	while (count > 0)
-	{
-		buf[count] = '\0';
-		to_free = buffer;
-   		buffer = ft_strjoin(buffer, buf);
-		free(to_free);
-   		if (ft_isnewline(buffer))
-			break;
-		count = read(fd, buf, BUFFER_SIZE);
-	}
-	free(buf);
-	if (count < 0)
-	{
-		free(buffer);
-		return (NULL);
-	}
-	return (buffer);
-}
 
 int ft_isnewline(char *s)
 {
@@ -52,43 +25,6 @@ int ft_isnewline(char *s)
         s++;
     }
     return (0);
-}
-
-
-char	*ft_getline(char *buffer)
-{
-	size_t	i;
-	char	*line;
-	size_t	len;
-
-	if (!buffer || !buffer[0])
-		return (NULL);
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')  // Search for newline or end of string
-		i++;
-	len = i;
-	if (buffer[i] == '\n')
-		len += 1;  // Include '\n' in the substring
-	line = ft_substr(buffer, 0, len);
-	if (!line)
-		return (NULL);
-	return (line);
-}
-
-char	*ft_save(char *buffer)
-{
-	size_t	i;
-	char	*left;
-
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	if (!buffer[i])  // No newline found, return NULL
-	{
-		return (NULL); ////////
-	}
-	left = ft_strdup(buffer + i + 1);
-	return (left);
 }
 
 char	*ft_strjoin(const char *s1, const char *s2)
