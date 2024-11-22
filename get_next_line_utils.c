@@ -6,25 +6,23 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:21:08 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/21 13:25:47 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:28:56 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
-
-int ft_isnewline(char *s)
+int	ft_isnewline(char *s)
 {
-    if (!s)
-        return (0);
-    while (*s)
-    {
-        if (*s == '\n')
-            return (1);
-        s++;
-    }
-    return (0);
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		if (*s == '\n')
+			return (1);
+		s++;
+	}
+	return (0);
 }
 
 char	*ft_strjoin(const char *s1, const char *s2)
@@ -59,12 +57,12 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 	char	*str;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	str = (char *) malloc(ft_strlen(s) * sizeof(char) + 1);
+	str = (char *)malloc(ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
+	i = 0;
 	while (s[i])
 	{
 		str[i] = s[i];
@@ -79,7 +77,6 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	size_t	str_len;
 	size_t	i;
 	char	*arr;
-	char	*str;
 
 	if (!s)
 		return (NULL);
@@ -98,16 +95,16 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		i++;
 	}
 	arr[i] = '\0';
-	
 	return (arr);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t len = 0;
+	size_t	len = 0;
 
-    while (s && s[len])
-        len++;
-    return len;
+	while (s && s[len])
+		len++;
+	return (len);
 }
+
 
