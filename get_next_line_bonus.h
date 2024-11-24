@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:21:12 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:29:19 by ahlahfid         ###   ########.fr       */
+/*   Created: 2024/11/22 18:13:49 by ahlahfid          #+#    #+#             */
+/*   Updated: 2024/11/24 14:28:34 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 15
@@ -21,6 +21,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_isnewline(char *s);

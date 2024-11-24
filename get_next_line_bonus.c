@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:21:10 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:04:23 by ahlahfid         ###   ########.fr       */
+/*   Created: 2024/11/22 18:13:45 by ahlahfid          #+#    #+#             */
+/*   Updated: 2024/11/24 14:28:59 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_free(char *str, char *buffer)
 {
@@ -87,28 +87,28 @@ static char	*ft_read(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[OPEN_MAX];
 	char		*line;
 	char		*temp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 0x7FFFFFFF)
 		return (NULL);
-	if (!buffer)
-		buffer = ft_strdup("");
-	if (!buffer)
+	if (!buffer[fd])
+		buffer[fd] = ft_strdup("");
+	if (!buffer[fd])
 		return (NULL);
-	buffer = ft_read(fd, buffer);
-	if (!buffer)
+	buffer[fd] = ft_read(fd, buffer[fd]);
+	if (!buffer[fd])
 		return (NULL);
-	line = ft_getline(buffer);
+	line = ft_getline(buffer[fd]);
 	if (!line)
 	{
-		free(buffer);
-		buffer = NULL;
+		free(buffer[fd]);
+		buffer[fd] = NULL;
 		return (NULL);
 	}
-	temp = ft_save(buffer);
-	free(buffer);
-	buffer = temp;
+	temp = ft_save(buffer[fd]);
+	free(buffer[fd]);
+	buffer[fd] = temp;
 	return (line);
 }

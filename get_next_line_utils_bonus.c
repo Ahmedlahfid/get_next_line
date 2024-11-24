@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 11:21:08 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:09:35 by ahlahfid         ###   ########.fr       */
+/*   Created: 2024/11/22 18:13:51 by ahlahfid          #+#    #+#             */
+/*   Updated: 2024/11/24 14:10:24 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_isnewline(char *s)
 {
