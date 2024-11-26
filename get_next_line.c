@@ -6,7 +6,7 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:21:10 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:04:23 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:14:11 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	*ft_read(int fd, char *buffer)
 {
 	char	*buf;
 	char	*to_free;
-	int		count;
+	ssize_t	count;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -95,8 +95,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!buffer)
 		buffer = ft_strdup("");
-	if (!buffer)
-		return (NULL);
 	buffer = ft_read(fd, buffer);
 	if (!buffer)
 		return (NULL);

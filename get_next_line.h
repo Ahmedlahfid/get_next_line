@@ -6,7 +6,7 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:21:12 by ahlahfid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:29:19 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:21:54 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 15
+#  define BUFFER_SIZE 42
 
 # endif
 
 # include <stdio.h>
+# include <limits.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
